@@ -10,9 +10,9 @@ The pipeline follows the **Medallion Architecture** (Bronze, Silver, Gold) and i
 * **Power BI:** For building an interactive dashboard and data model based on the aggregated Gold layer.
 
 ## Pipeline Structure
-1. **[Bronze Layer](./notebooks/01_bronze_ingestion_3.py):** Raw data ingestion. Data is loaded from CSV files into Delta tables with added metadata (`_source_file`, `_ingestion_ts`) for reproducibility.
-2. **[Silver Layer](./notebooks/02_silver_transformation_3.py):** Data cleaning and structuring. This step involves type casting, parsing dates/times, and filtering invalid data (e.g., removing cancelled flights for delay analysis).
-3. **[Gold Layer](./notebooks/03_gold_analysis_3.py):** Business-level aggregations. The data is grouped to calculate flight volumes and delay probabilities across different dimensions:
+1. **[Bronze Layer](./notebooks/01_bronze_ingestion.py):** Raw data ingestion. Data is loaded from CSV files into Delta tables with added metadata (`_source_file`, `_ingestion_ts`) for reproducibility.
+2. **[Silver Layer](./notebooks/02_silver_transformation.py):** Data cleaning and structuring. This step involves type casting, parsing dates/times, and filtering invalid data (e.g., removing cancelled flights for delay analysis).
+3. **[Gold Layer](./notebooks/03_gold_analysis.py):** Business-level aggregations. The data is grouped to calculate flight volumes and delay probabilities across different dimensions:
    * By hour of the day
    * By day of the week
    * By origin airport
